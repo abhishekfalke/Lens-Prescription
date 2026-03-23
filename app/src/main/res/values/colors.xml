@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- ── Brand ─────────────────────────────────────────────────── -->
+    <color name="colorPrimary">#1565C0</color>       <!-- Deep blue  -->
+    <color name="colorPrimaryDark">#0D47A1</color>   <!-- Darker blue for status bar -->
+    <color name="colorPrimaryLight">#E3F2FD</color>  <!-- Very light blue tint -->
+    <color name="colorAccent">#00897B</color>        <!-- Teal accent (left-eye labels) -->
+
+    <!-- ── Semantic ──────────────────────────────────────────────── -->
+    <color name="error">#C62828</color>
+    <color name="success">#2E7D32</color>
+    <color name="warning">#F9A825</color>
+
+    <!-- ── Text ───────────────────────────────────────────────────── -->
+    <color name="text_secondary">#6B7280</color>
+    <color name="text_dark">#050505</color>
+    <color name="blue">#0740fa</color>
+    <color name="text_on_primary">#FFFFFF</color>
+    <color name="text_primary">#d3d3e0</color>
+    <color name="text_hint">#9CA3AF</color>
+
+    <!-- ── Surfaces ───────────────────────────────────────────────── -->
+    <color name="bg_primary">#F4F6FA</color>         <!-- App background -->
+    <color name="bg_card">#FFFFFF</color>
+    <color name="divider">#E0E0E0</color>
+</resources>

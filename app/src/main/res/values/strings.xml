@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Lens Prescription</string>
+
+    <!-- Navigation -->
+    <string name="title_add_prescription">Add Prescription</string>
+    <string name="title_edit_prescription">Edit Prescription</string>
+    <string name="title_view_prescriptions">My Prescriptions</string>
+    <string name="title_insights">Insights</string>
+
+    <!-- Buttons -->
+    <string name="btn_save">Save Prescription</string>
+    <string name="btn_cancel">Cancel</string>
+    <string name="btn_delete">Delete</string>
+    <string name="btn_change">Change</string>
+    <string name="btn_add_new">Add Prescription</string>
+    <string name="btn_view_all">View Prescriptions</string>
+    <string name="btn_insights">Insights</string>
+
+    <!-- Form labels -->
+    <string name="label_patient_name">Patient Name *</string>
+    <string name="label_doctor_name">Doctor / Optometrist Name</string>
+    <string name="label_clinic">Clinic / Hospital</string>
+    <string name="label_date">Date</string>
+    <string name="label_right_eye">Right Eye (OD)</string>
+    <string name="label_left_eye">Left Eye (OS)</string>
+    <string name="label_sphere">SPH</string>
+    <string name="label_cylinder">CYL</string>
+    <string name="label_axis">Axis°</string>
+    <string name="label_add">Add</string>
+    <string name="label_pd_right">Right PD (mm)</string>
+    <string name="label_pd_left">Left PD (mm)</string>
+    <string name="label_notes">Notes (optional)</string>
+    <string name="label_pd_section">Pupillary Distance (PD)</string>
+
+    <!-- Messages -->
+    <string name="msg_saved">Prescription saved!</string>
+    <string name="msg_updated">Prescription updated!</string>
+    <string name="msg_deleted">Prescription deleted.</string>
+    <string name="msg_no_records">No prescriptions yet.\nTap + to add one.</string>
+    <string name="msg_no_insights">No data yet. Add prescriptions to see insights.</string>
+    <string name="msg_confirm_delete">Delete this prescription?</string>
+
+    <!-- Insights labels -->
+    <string name="label_total_records">Total Records</string>
+    <string name="label_latest">Latest Prescription</string>
+    <string name="label_avg_sphere">Average Sphere Power</string>
+    <string name="label_trend">Trend Analysis</string>
+    <string name="label_right_sph">Right SPH</string>
+    <string name="label_left_sph">Left SPH</string>
+    <string name="label_right_eye_od">OD (Right)</string>
+    <string name="label_left_eye_os">OS (Left)</string>
+    <string name="label_common_axis">Most Common Axis</string>
+
+    <!-- Search -->
+    <string name="hint_search">Search by patient or doctor…</string>
+    <string name="patient_name">Patient Name *</string>
+    <string name="no_prescriptions_yet_ntap_to_add_one">No prescriptions yet.\nTap ＋ to add one.</string>
+    <string name="add_prescription">Add prescription</string>
+    <string name="delete">Delete</string>
+    <string name="od_right">OD (Right)</string>
+    <string name="os_left">OS (Left)</string>
+    <string name="save_prescription">Save Prescription</string>
+    <string name="additional_notes_optional">Additional notes (optional)</string>
+    <string name="notes">Notes</string>
+    <string name="_0_0">0.0</string>
+    <string name="left_pd_mm">Left PD (mm)</string>
+    <string name="right_pd_mm">Right PD (mm)</string>
+    <string name="pupillary_distance_pd">Pupillary Distance (PD)</string>
+    <string name="_0_00">0.00</string>
+    <string name="add_reading_addition">Add (reading addition)</string>
+    <string name="_0">0</string>
+    <string name="axis">Axis°</string>
+    <string name="cyl">CYL</string>
+    <string name="_0_records_saved">Total 0 records saved</string>
+    <string name="add_icon">➕</string>
+    <string name="record_a_new_eye_examination">Record a new eye examination</string>
+    <string name="view_prescriptions">View Prescriptions</string>
+    <string name="browse_and_manage_all_records">Browse and manage all records</string>
+    <string name="vision_trends_amp_statistics"><![CDATA[Vision trends & statistics]]></string>
+    <string name="insights">Insights</string>
+    <string name="date">Date</string>
+    <string name="change">Change</string>
+    <string name="patient_information">Patient Information</string>
+    <string name="doctor_optometrist_name">Doctor / Optometrist Name</string>
+    <string name="clinic_hospital">Clinic / Hospital</string>
+    <string name="enter_name">Enter Name</string>
+    <string name="sph">SPH</string>
+    <string name="no_data_yet_add_prescriptions_to_see_insights">No data yet. Add prescriptions to see insights.</string>
+    <string name="summary">Summary</string>
+    <string name="total_records">Total Records</string>
+    <string name="most_common_axis">Most Common Axis</string>
+    <string name="latest_prescription">Latest Prescription</string>
+    <string name="right_sph">Right SPH</string>
+    <string name="left_sph">Left SPH</string>
+    <string name="average_sphere_power">Average Sphere Power</string>
+    <string name="right_eye">Right Eye</string>
+    <string name="left_eye">Left Eye</string>
+    <string name="trend_analysis">Trend Analysis</string>
+    <string name="go">›</string>
+    <string name="total_0_records_saved">✅ Total 0 records saved</string>
+</resources>

@@ -1,0 +1,15 @@
+<resources>
+
+    <style name="MyTextInputStyle"
+        parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+
+        <item name="boxStrokeColor">@color/blue</item>
+        <item name="boxStrokeWidth">1dp</item>
+        <item name="hintTextColor">@color/blue</item>
+
+    </style>
+
+    <style name="MyBorder"
+        parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+    </style>
+</resources>
