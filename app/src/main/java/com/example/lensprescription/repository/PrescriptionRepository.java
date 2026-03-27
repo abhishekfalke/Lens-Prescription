@@ -18,11 +18,9 @@ import java.util.concurrent.Executors;
  * thread is never blocked.
  */
 public class PrescriptionRepository {
-
     private final PrescriptionDao dao;
     private final ExecutorService executor;
 
-    // ─── Cached LiveData streams ──────────────────────────────────
     private final LiveData<List<Prescription>> allPrescriptions;
     private final LiveData<List<Prescription>> allChronological;
 
@@ -35,7 +33,6 @@ public class PrescriptionRepository {
         allChronological = dao.getAllChronological();
     }
 
-    // ─── Reads (return LiveData — Room handles the background thread) ─
 
     public LiveData<List<Prescription>> getAllPrescriptions() {
         return allPrescriptions;

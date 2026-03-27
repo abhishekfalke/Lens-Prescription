@@ -30,8 +30,8 @@
             android:layout_marginStart="12dp"
             android:layout_marginEnd="12dp"
             android:layout_marginTop="10dp"
-            android:layout_marginBottom="28dp"
-            android:background="@color/text_secondary"
+            android:layout_marginBottom="20dp"
+            android:background="@color/text_hint"
 
             android:queryHint="Search by patient or doctor..."
             app:iconifiedByDefault="false"/>
@@ -65,7 +65,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|end"
-        android:layout_margin="16dp"
+        android:layout_margin="20dp"
         android:contentDescription="@string/add_prescription"
         android:src="@android:drawable/ic_input_add"
         app:backgroundTint="@color/colorPrimary"/>

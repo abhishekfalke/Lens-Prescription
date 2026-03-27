@@ -1,11 +1,12 @@
 package com.example.lensprescription.db.entity;
 
+import android.annotation.SuppressLint;
+
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
 /**
  * Room Entity representing a single eye prescription record.
- *
  * Eye prescription values:
  *  - Sphere (SPH): lens power, negative = myopia, positive = hyperopia (-20.00 to +20.00)
  *  - Cylinder (CYL): astigmatism correction, usually negative (-10.00 to +10.00)
@@ -13,6 +14,7 @@ import androidx.room.PrimaryKey;
  *  - Add: reading addition for presbyopia (0.00 to +4.00)
  *  - PD: Pupillary distance in mm
  */
+
 @Entity(tableName = "prescriptions")
 public class Prescription {
 
@@ -23,28 +25,21 @@ public class Prescription {
     private String patientName;
     private String doctorName;
     private String clinic;
-    private long dateMillis;          // epoch millis; display-formatted in UI
+    private long dateMillis;
     private String notes;
 
-    // ─── Right Eye (OD) ─────────────────────────────────────
-    private float rightSphere;        // SPH
-    private float rightCylinder;      // CYL
-    private int   rightAxis;          // 0–180
-    private float rightAdd;           // reading addition
+    private float rightSphere;
+    private float rightCylinder;
+    private int   rightAxis;
+    private float rightAdd;
 
-    // ─── Left Eye (OS) ──────────────────────────────────────
     private float leftSphere;
     private float leftCylinder;
     private int   leftAxis;
     private float leftAdd;
 
-    // ─── Pupillary Distance ──────────────────────────────────
-    private float pdRight;            // monocular right PD (mm)
-    private float pdLeft;             // monocular left  PD (mm)
-
-    // ───────────────────────────────────────────────────────────
-    // Constructors
-    // ───────────────────────────────────────────────────────────
+    private float pdRight;
+    private float pdLeft;
 
     public Prescription() {}
 
@@ -69,9 +64,6 @@ public class Prescription {
         this.notes         = notes;
     }
 
-    // ───────────────────────────────────────────────────────────
-    // Getters & Setters
-    // ───────────────────────────────────────────────────────────
 
     public int getId()                    { return id; }
     public void setId(int id)             { this.id = id; }
@@ -124,14 +116,9 @@ public class Prescription {
     public float getPdLeft()                              { return pdLeft; }
     public void  setPdLeft(float pdLeft)                  { this.pdLeft = pdLeft; }
 
-    // ───────────────────────────────────────────────────────────
-    // Convenience helpers
-    // ───────────────────────────────────────────────────────────
-
-    /** Combined binocular PD (right + left). */
     public float getBinocularPd() { return pdRight + pdLeft; }
 
-    /** Formats a sphere/cylinder float as "+1.25" or "-0.75". */
+    @SuppressLint("DefaultLocale")
     public static String formatDiopter(float value) {
         return String.format("%+.2f", value);
     }

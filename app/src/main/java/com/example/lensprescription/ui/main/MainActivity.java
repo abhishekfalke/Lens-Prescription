@@ -28,7 +28,7 @@ public class MainActivity extends AppCompatActivity {
         viewModel.getAllPrescriptions().observe(this, list -> {
             int count = (list != null) ? list.size() : 0;
             binding.tvRecordCount.setText(
-                    count == 1 ? "1 record saved" : "✅ " + count + " records saved");
+                    count == 1 ? "1 record saved" : count + " records saved");
         });
 
         binding.btnAddPrescription.setOnClickListener(v ->

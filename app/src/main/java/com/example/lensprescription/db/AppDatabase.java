@@ -24,7 +24,6 @@ public abstract class AppDatabase extends RoomDatabase {
 
     public abstract PrescriptionDao prescriptionDao();
 
-    /** Thread-safe singleton accessor (double-checked locking). */
     public static AppDatabase getInstance(Context context) {
         if (instance == null) {
             synchronized (AppDatabase.class) {
@@ -33,8 +32,6 @@ public abstract class AppDatabase extends RoomDatabase {
                                     context.getApplicationContext(),
                                     AppDatabase.class,
                                     DB_NAME)
-                            // Allow Room to destructively recreate DB when no migration is supplied.
-                            // Remove this in production and supply proper migrations instead.
                             .fallbackToDestructiveMigration()
                             .build();
                 }
