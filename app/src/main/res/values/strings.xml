@@ -2,13 +2,25 @@
 <resources>
     <string name="app_name">Lens Prescription App</string>
 
-    <!-- Navigation -->
+    <!-- ── Header ──────────────────────────────────────── -->
+    <string name="header_subtitle">Track your vision history</string>
+
+    <!-- ── Stat card ───────────────────────────────────── -->
+    <string name="prescriptions_saved">prescriptions saved</string>
+    <string name="total_0_records">0</string>
+
+    <!-- ── Bottom nav labels ───────────────────────────── -->
+    <string name="nav_add">Add</string>
+    <string name="nav_records">Records</string>
+    <string name="nav_insights">Insights</string>
+
+    <!-- ── Navigation titles ───────────────────────────── -->
     <string name="title_add_prescription">Add Prescription</string>
     <string name="title_edit_prescription">Edit Prescription</string>
     <string name="title_view_prescriptions">My Prescriptions</string>
     <string name="title_insights">Insights</string>
 
-    <!-- Buttons -->
+    <!-- ── Buttons ─────────────────────────────────────── -->
     <string name="btn_save">Save Prescription</string>
     <string name="btn_cancel">Cancel</string>
     <string name="btn_delete">Delete</string>
@@ -17,7 +29,7 @@
     <string name="btn_view_all">View Prescriptions</string>
     <string name="btn_insights">Insights</string>
 
-    <!-- Form labels -->
+    <!-- ── Form labels ─────────────────────────────────── -->
     <string name="label_patient_name">Patient Name *</string>
     <string name="label_doctor_name">Doctor / Optometrist Name</string>
     <string name="label_clinic">Clinic / Hospital</string>
@@ -33,15 +45,15 @@
     <string name="label_notes">Notes (optional)</string>
     <string name="label_pd_section">Pupillary Distance (PD)</string>
 
-    <!-- Messages -->
+    <!-- ── Messages ────────────────────────────────────── -->
     <string name="msg_saved">Prescription saved!</string>
     <string name="msg_updated">Prescription updated!</string>
     <string name="msg_deleted">Prescription deleted.</string>
-    <string name="msg_no_records">No prescriptions yet.\nTap + to add one.</string>
+    <string name="msg_no_records">No prescriptions yet.\nTap Add to get started.</string>
     <string name="msg_no_insights">No data yet. Add prescriptions to see insights.</string>
     <string name="msg_confirm_delete">Delete this prescription?</string>
 
-    <!-- Insights labels -->
+    <!-- ── Insights labels ─────────────────────────────── -->
     <string name="label_total_records">Total Records</string>
     <string name="label_latest">Latest Prescription</string>
     <string name="label_avg_sphere">Average Sphere Power</string>
@@ -52,11 +64,21 @@
     <string name="label_left_eye_os">OS (Left)</string>
     <string name="label_common_axis">Most Common Axis</string>
 
-    <!-- Search -->
+    <!-- ── Search ──────────────────────────────────────── -->
     <string name="hint_search">Search by patient or doctor…</string>
+
+    <!-- ── Home screen cards ───────────────────────────── -->
+    <string name="add_prescription">Add Prescription</string>
+    <string name="record_a_new_eye_examination">Record a new eye examination</string>
+    <string name="view_prescriptions">View Prescriptions</string>
+    <string name="browse_and_manage_all_records">Browse and manage all records</string>
+    <string name="insights">Insights</string>
+    <string name="vision_trends_statistics"><![CDATA[Vision trends & statistics]]></string>
+    <string name="vision_trends_amp_statistics"><![CDATA[Vision trends & statistics]]></string>
+
+    <!-- ── Auto-generated / legacy (kept for safety) ───── -->
     <string name="patient_name">Patient Name *</string>
     <string name="no_prescriptions_yet_ntap_to_add_one">No prescriptions yet.\nTap ＋ to add one.</string>
-    <string name="add_prescription">Add prescription</string>
     <string name="delete">Delete</string>
     <string name="od_right">OD (Right)</string>
     <string name="os_left">OS (Left)</string>
@@ -74,11 +96,6 @@
     <string name="cyl">CYL</string>
     <string name="_0_records_saved">Total 0 records saved</string>
     <string name="add_icon">➕</string>
-    <string name="record_a_new_eye_examination">Record a new eye examination</string>
-    <string name="view_prescriptions">View Prescriptions</string>
-    <string name="browse_and_manage_all_records">Browse and manage all records</string>
-    <string name="vision_trends_amp_statistics"><![CDATA[Vision trends & statistics]]></string>
-    <string name="insights">Insights</string>
     <string name="date">Date</string>
     <string name="change">Change</string>
     <string name="patient_information">Patient Information</string>
@@ -98,5 +115,6 @@
     <string name="left_eye">Left Eye</string>
     <string name="trend_analysis">Trend Analysis</string>
     <string name="go">›</string>
-    <string name="total_0_records_saved">✅ Total 0 records saved</string>
+    <string name="total_0_records_saved">Total 0 records saved</string>
+    <string name="home">Home</string>
 </resources>

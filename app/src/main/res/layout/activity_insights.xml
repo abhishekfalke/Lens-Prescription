@@ -1,14 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.coordinatorlayout.widget.CoordinatorLayout
+<LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     android:background="@color/bg_primary"
     tools:context=".ui.insights.InsightsActivity">
 
-    <!-- Top Bar -->
+    <!-- Toolbar -->
     <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
@@ -22,19 +23,18 @@
             app:titleTextColor="@android:color/white"/>
     </com.google.android.material.appbar.AppBarLayout>
 
-    <!-- Content -->
+    <!-- Scroll Content fills remaining space -->
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:padding="16dp"
-        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:padding="16dp">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <!-- No Data -->
             <TextView
                 android:id="@+id/tvNoData"
                 android:layout_width="match_parent"
@@ -47,12 +47,11 @@
                 android:visibility="gone"
                 tools:visibility="visible"/>
 
-            <!-- Insights -->
             <LinearLayout
                 android:id="@+id/groupInsights"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
+                android:orientation="vertical"
                 android:visibility="gone"
                 tools:visibility="visible">
 
@@ -61,11 +60,11 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="14dp"
-                    android:backgroundTint="@android:color/transparent"
                     app:cardCornerRadius="14dp"
-                    app:cardElevation="0dp"
+                    app:strokeWidth="1dp"
                     app:strokeColor="@color/text_dark"
-                    app:strokeWidth="1dp">
+                    app:cardElevation="0dp"
+                    android:backgroundTint="@android:color/transparent">
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -76,70 +75,63 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginBottom="12dp"
-                            android:text="@string/summary"
-                            android:textColor="@color/colorPrimary"
+                            android:text="Summary"
                             android:textSize="16sp"
-                            android:textStyle="bold" />
+                            android:textStyle="bold"
+                            android:textColor="@color/colorPrimary"/>
 
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:orientation="horizontal">
+                            android:orientation="horizontal"
+                            android:layout_marginTop="10dp">
 
-                            <!-- Total -->
                             <LinearLayout
                                 android:layout_width="0dp"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
-                                android:gravity="center"
-                                android:orientation="vertical">
+                                android:orientation="vertical"
+                                android:gravity="center">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Total Records"
+                                    android:textSize="12sp"
+                                    android:textColor="@color/text_dark"/>
 
                                 <TextView
                                     android:id="@+id/tvTotalRecords"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:textColor="@color/colorPrimary"
-                                    android:textSize="32sp"
+                                    android:textSize="28sp"
                                     android:textStyle="bold"
-                                    tools:text="5" />
-
-                                <TextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:text="@string/total_records"
-                                    android:textColor="@color/text_dark"
-                                    android:textSize="12sp" />
+                                    android:textColor="@color/colorPrimary"
+                                    tools:text="5"/>
                             </LinearLayout>
 
-                            <View
-                                android:layout_width="1dp"
-                                android:layout_height="match_parent"
-                                android:background="@color/divider" />
-
-                            <!-- Axis -->
                             <LinearLayout
                                 android:layout_width="0dp"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
-                                android:gravity="center"
-                                android:orientation="vertical">
+                                android:orientation="vertical"
+                                android:gravity="center">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Common Axis"
+                                    android:textSize="12sp"
+                                    android:textColor="@color/text_dark"/>
 
                                 <TextView
                                     android:id="@+id/tvCommonAxis"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:textColor="@color/colorPrimary"
-                                    android:textSize="32sp"
+                                    android:textSize="28sp"
                                     android:textStyle="bold"
-                                    tools:text="90°" />
-
-                                <TextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:text="@string/most_common_axis"
-                                    android:textColor="@color/text_dark"
-                                    android:textSize="12sp" />
+                                    android:textColor="@color/colorPrimary"
+                                    tools:text="90°"/>
                             </LinearLayout>
                         </LinearLayout>
                     </LinearLayout>
@@ -150,11 +142,11 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="14dp"
-                    android:backgroundTint="@android:color/transparent"
                     app:cardCornerRadius="14dp"
-                    app:cardElevation="0dp"
+                    app:strokeWidth="1dp"
                     app:strokeColor="@color/text_dark"
-                    app:strokeWidth="1dp">
+                    app:cardElevation="0dp"
+                    android:backgroundTint="@android:color/transparent">
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -165,28 +157,24 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginBottom="8dp"
-                            android:text="@string/latest_prescription"
-                            android:textColor="@color/colorPrimary"
+                            android:text="Latest Prescription"
                             android:textSize="16sp"
-                            android:textStyle="bold" />
+                            android:textStyle="bold"
+                            android:textColor="@color/colorPrimary"/>
 
                         <TextView
                             android:id="@+id/tvLatestPatient"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginBottom="10dp"
-                            android:gravity="center"
                             android:textColor="@color/text_dark"
-                            android:textSize="15sp"
-                            android:textStyle="bold"
-                            tools:text="Jane Doe" />
+                            android:layout_marginTop="6dp"
+                            tools:text="Jane Doe"/>
 
-                        <!-- COLUMN LAYOUT -->
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:orientation="horizontal">
+                            android:orientation="horizontal"
+                            android:layout_marginTop="10dp">
 
                             <LinearLayout
                                 android:layout_width="0dp"
@@ -199,17 +187,17 @@
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:text="Right Eye"
-                                    android:textColor="@color/text_dark"
-                                    android:textSize="12sp" />
+                                    android:textSize="12sp"
+                                    android:textColor="@color/text_dark"/>
 
                                 <TextView
                                     android:id="@+id/tvLatestRightSph"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:textColor="@color/colorPrimary"
-                                    android:textSize="20sp"
+                                    android:textSize="18sp"
                                     android:textStyle="bold"
-                                    tools:text="-2.25" />
+                                    android:textColor="@color/text_dark"
+                                    tools:text="-2.25"/>
                             </LinearLayout>
 
                             <LinearLayout
@@ -223,20 +211,19 @@
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:text="Left Eye"
-                                    android:textColor="@color/text_dark"
-                                    android:textSize="12sp" />
+                                    android:textSize="12sp"
+                                    android:textColor="@color/text_dark"/>
 
                                 <TextView
                                     android:id="@+id/tvLatestLeftSph"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:textColor="@color/colorPrimary"
-                                    android:textSize="20sp"
+                                    android:textSize="18sp"
                                     android:textStyle="bold"
-                                    tools:text="-1.75" />
+                                    android:textColor="@color/text_dark"
+                                    tools:text="-1.75"/>
                             </LinearLayout>
                         </LinearLayout>
-
                     </LinearLayout>
                 </com.google.android.material.card.MaterialCardView>
 
@@ -245,11 +232,11 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="14dp"
-                    android:backgroundTint="@android:color/transparent"
                     app:cardCornerRadius="14dp"
-                    app:cardElevation="0dp"
+                    app:strokeWidth="1dp"
                     app:strokeColor="@color/text_dark"
-                    app:strokeWidth="1dp">
+                    app:cardElevation="0dp"
+                    android:backgroundTint="@android:color/transparent">
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -260,41 +247,65 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginBottom="10dp"
-                            android:text="@string/average_sphere_power"
-                            android:textColor="@color/colorPrimary"
+                            android:text="Average Sphere Power"
                             android:textSize="16sp"
-                            android:textStyle="bold" />
+                            android:textStyle="bold"
+                            android:textColor="@color/colorPrimary"/>
 
-                        <!-- COLUMN LAYOUT -->
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:orientation="horizontal">
+                            android:orientation="horizontal"
+                            android:layout_marginTop="10dp">
 
-                            <TextView
-                                android:id="@+id/tvAvgRight"
+                            <LinearLayout
                                 android:layout_width="0dp"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
                                 android:gravity="center"
-                                android:textColor="@color/colorPrimary"
-                                android:textSize="20sp"
-                                android:textStyle="bold"
-                                tools:text="-1.50" />
+                                android:orientation="vertical">
 
-                            <TextView
-                                android:id="@+id/tvAvgLeft"
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Right Eye"
+                                    android:textSize="12sp"
+                                    android:textColor="@color/text_dark"/>
+
+                                <TextView
+                                    android:id="@+id/tvAvgRight"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:textSize="18sp"
+                                    android:textStyle="bold"
+                                    android:textColor="@color/text_dark"
+                                    tools:text="-1.50"/>
+                            </LinearLayout>
+
+                            <LinearLayout
                                 android:layout_width="0dp"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
                                 android:gravity="center"
-                                android:textColor="@color/colorPrimary"
-                                android:textSize="20sp"
-                                android:textStyle="bold"
-                                tools:text="-1.25" />
+                                android:orientation="vertical">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Left Eye"
+                                    android:textSize="12sp"
+                                    android:textColor="@color/text_dark"/>
+
+                                <TextView
+                                    android:id="@+id/tvAvgLeft"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:textSize="18sp"
+                                    android:textStyle="bold"
+                                    android:textColor="@color/text_dark"
+                                    tools:text="-1.25"/>
+                            </LinearLayout>
                         </LinearLayout>
-
                     </LinearLayout>
                 </com.google.android.material.card.MaterialCardView>
 
@@ -302,11 +313,11 @@
                 <com.google.android.material.card.MaterialCardView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:backgroundTint="@android:color/transparent"
                     app:cardCornerRadius="14dp"
-                    app:cardElevation="0dp"
+                    app:strokeWidth="1dp"
                     app:strokeColor="@color/text_dark"
-                    app:strokeWidth="1dp">
+                    app:cardElevation="0dp"
+                    android:backgroundTint="@android:color/transparent">
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -317,19 +328,18 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginBottom="8dp"
-                            android:text="@string/trend_analysis"
-                            android:textColor="@color/colorPrimary"
+                            android:text="Trend Analysis"
                             android:textSize="16sp"
-                            android:textStyle="bold" />
+                            android:textStyle="bold"
+                            android:textColor="@color/colorPrimary"/>
 
                         <TextView
                             android:id="@+id/tvTrend"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:layout_marginTop="8dp"
                             android:textColor="@color/text_dark"
-                            android:textSize="14sp"
-                            tools:text="Over 3 records — change detected" />
+                            tools:text="No trend yet"/>
                     </LinearLayout>
                 </com.google.android.material.card.MaterialCardView>
 
@@ -337,4 +347,9 @@
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>
 
-</androidx.coordinatorlayout.widget.CoordinatorLayout>
+    <!-- Bottom Nav -->
+    <include
+        android:id="@+id/bottomNav"
+        layout="@layout/layout_bottom_nav"/>
+
+</LinearLayout>

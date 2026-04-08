@@ -2,7 +2,6 @@ package com.example.lensprescription.ui.list;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.MenuItem;
 import android.view.View;
 
 import androidx.appcompat.app.AlertDialog;
@@ -16,13 +15,10 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.lensprescription.databinding.ActivityViewPrescriptionsBinding;
 import com.example.lensprescription.db.entity.Prescription;
 import com.example.lensprescription.ui.addedit.AddPrescriptionActivity;
+import com.example.lensprescription.ui.common.BottomNavHelper;
 import com.example.lensprescription.ui.list.adapter.PrescriptionAdapter;
 import com.example.lensprescription.ui.list.viewmodel.PrescriptionViewModel;
 
-/**
- * Displays all saved prescriptions in a searchable RecyclerView.
- * Tap a card to edit; swipe left to delete; FAB to add new.
- */
 public class ViewPrescriptionsActivity extends AppCompatActivity
         implements PrescriptionAdapter.OnItemActionListener {
 
@@ -36,9 +32,10 @@ public class ViewPrescriptionsActivity extends AppCompatActivity
         binding = ActivityViewPrescriptionsBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
+        // No back arrow — this is a top-level nav destination
         setSupportActionBar(binding.toolbar);
         if (getSupportActionBar() != null) {
-            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+            getSupportActionBar().setDisplayHomeAsUpEnabled(false);
             getSupportActionBar().setTitle("My Prescriptions");
         }
 
@@ -49,9 +46,10 @@ public class ViewPrescriptionsActivity extends AppCompatActivity
         setupSwipeToDelete();
         setupFab();
         observeData();
-    }
 
-    // ─── RecyclerView ─────────────────────────────────────────────
+        // Wire bottom nav — Records is active
+        BottomNavHelper.setup(this, BottomNavHelper.NAV_RECORDS);
+    }
 
     private void setupRecyclerView() {
         adapter = new PrescriptionAdapter();
@@ -60,52 +58,35 @@ public class ViewPrescriptionsActivity extends AppCompatActivity
         binding.recyclerView.setAdapter(adapter);
     }
 
-    // ─── Search ───────────────────────────────────────────────────
-
     private void setupSearch() {
         binding.searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
-            @Override
-            public boolean onQueryTextSubmit(String query) {
-                viewModel.setSearchQuery(query);
-                return true;
+            @Override public boolean onQueryTextSubmit(String query) {
+                viewModel.setSearchQuery(query); return true;
             }
-
-            @Override
-            public boolean onQueryTextChange(String newText) {
-                viewModel.setSearchQuery(newText);
-                return true;
+            @Override public boolean onQueryTextChange(String newText) {
+                viewModel.setSearchQuery(newText); return true;
             }
         });
     }
 
-    // ─── Swipe-to-delete ─────────────────────────────────────────
-
     private void setupSwipeToDelete() {
-        new ItemTouchHelper(new ItemTouchHelper.SimpleCallback(
-                0, ItemTouchHelper.LEFT) {
-            @Override
-            public boolean onMove(@androidx.annotation.NonNull RecyclerView rv,
-                                  @androidx.annotation.NonNull RecyclerView.ViewHolder vh,
-                                  @androidx.annotation.NonNull RecyclerView.ViewHolder target) {
+        new ItemTouchHelper(new ItemTouchHelper.SimpleCallback(0, ItemTouchHelper.LEFT) {
+            @Override public boolean onMove(@androidx.annotation.NonNull RecyclerView rv,
+                                            @androidx.annotation.NonNull RecyclerView.ViewHolder vh,
+                                            @androidx.annotation.NonNull RecyclerView.ViewHolder t) {
                 return false;
             }
-
-            @Override
-            public void onSwiped(@androidx.annotation.NonNull RecyclerView.ViewHolder vh, int dir) {
+            @Override public void onSwiped(@androidx.annotation.NonNull RecyclerView.ViewHolder vh, int d) {
                 Prescription p = adapter.getCurrentList().get(vh.getAdapterPosition());
                 confirmDelete(p);
             }
         }).attachToRecyclerView(binding.recyclerView);
     }
 
-    // ─── FAB ──────────────────────────────────────────────────────
-
     private void setupFab() {
         binding.fabAdd.setOnClickListener(v ->
                 startActivity(new Intent(this, AddPrescriptionActivity.class)));
     }
-
-    // ─── Observe ─────────────────────────────────────────────────
 
     private void observeData() {
         viewModel.getSearchResults().observe(this, prescriptions -> {
@@ -116,35 +97,21 @@ public class ViewPrescriptionsActivity extends AppCompatActivity
         });
     }
 
-    // ─── Listener callbacks ───────────────────────────────────────
-
-    @Override
-    public void onItemClick(Prescription prescription) {
+    @Override public void onItemClick(Prescription prescription) {
         Intent intent = new Intent(this, AddPrescriptionActivity.class);
         intent.putExtra(AddPrescriptionActivity.EXTRA_PRESCRIPTION_ID, prescription.getId());
         startActivity(intent);
     }
 
-    @Override
-    public void onDeleteClick(Prescription prescription) {
-        confirmDelete(prescription);
-    }
-
-    // ─── Delete dialog ────────────────────────────────────────────
+    @Override public void onDeleteClick(Prescription prescription) { confirmDelete(prescription); }
 
     private void confirmDelete(Prescription prescription) {
         new AlertDialog.Builder(this)
                 .setTitle("Delete Prescription")
                 .setMessage("Delete prescription for " + prescription.getPatientName() + "?")
                 .setPositiveButton("Delete", (d, w) -> viewModel.delete(prescription))
-                .setNegativeButton("Cancel", (d, w) -> adapter.notifyDataSetChanged())
+                .setNegativeButton("Cancel",  (d, w) -> adapter.notifyDataSetChanged())
                 .setOnCancelListener(d -> adapter.notifyDataSetChanged())
                 .show();
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        if (item.getItemId() == android.R.id.home) { finish(); return true; }
-        return super.onOptionsItemSelected(item);
     }
 }

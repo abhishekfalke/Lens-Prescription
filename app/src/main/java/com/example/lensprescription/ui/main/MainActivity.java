@@ -7,8 +7,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.ViewModelProvider;
 
 import com.example.lensprescription.databinding.ActivityMainBinding;
-import com.example.lensprescription.ui.addedit.AddPrescriptionActivity;
-import com.example.lensprescription.ui.insights.InsightsActivity;
+import com.example.lensprescription.ui.common.BottomNavHelper;
 import com.example.lensprescription.ui.list.ViewPrescriptionsActivity;
 import com.example.lensprescription.ui.list.viewmodel.PrescriptionViewModel;
 
@@ -28,16 +27,18 @@ public class MainActivity extends AppCompatActivity {
         viewModel.getAllPrescriptions().observe(this, list -> {
             int count = (list != null) ? list.size() : 0;
             binding.tvRecordCount.setText(
-                    count == 1 ? "1 record saved" : count + " records saved");
+                    count == 1 ? "1 record saved" : count + " Prescriptions saved");
         });
 
-        binding.btnAddPrescription.setOnClickListener(v ->
-                startActivity(new Intent(this, AddPrescriptionActivity.class)));
+        // Tapping the record count card → go to Records tab
+        binding.cardRecordCount.setOnClickListener(v -> {
+            Intent i = new Intent(this, ViewPrescriptionsActivity.class);
+            i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
+            startActivity(i);
+            finish();
+        });
 
-        binding.btnViewPrescriptions.setOnClickListener(v ->
-                startActivity(new Intent(this, ViewPrescriptionsActivity.class)));
-
-        binding.btnInsights.setOnClickListener(v ->
-                startActivity(new Intent(this, InsightsActivity.class)));
+        // Wire bottom nav — Home is active
+        BottomNavHelper.setup(this, BottomNavHelper.NAV_HOME);
     }
 }

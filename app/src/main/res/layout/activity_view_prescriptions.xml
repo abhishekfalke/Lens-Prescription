@@ -1,13 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.coordinatorlayout.widget.CoordinatorLayout
+<LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     android:background="@color/bg_primary"
     tools:context=".ui.list.ViewPrescriptionsActivity">
 
+    <!-- AppBar -->
     <com.google.android.material.appbar.AppBarLayout
         android:id="@+id/appBar"
         android:layout_width="match_parent"
@@ -22,7 +24,6 @@
             app:titleTextColor="@android:color/white"
             android:background="@color/colorPrimary"/>
 
-        <!-- Search bar sits inside the AppBar -->
         <androidx.appcompat.widget.SearchView
             android:id="@+id/searchView"
             android:layout_width="match_parent"
@@ -32,42 +33,52 @@
             android:layout_marginTop="10dp"
             android:layout_marginBottom="20dp"
             android:background="@color/text_hint"
-
             android:queryHint="Search by patient or doctor..."
             app:iconifiedByDefault="false"/>
 
     </com.google.android.material.appbar.AppBarLayout>
 
-    <!-- Empty state -->
-    <TextView
-        android:id="@+id/tvEmpty"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:text="@string/no_prescriptions_yet_ntap_to_add_one"
-        android:textAlignment="center"
-        android:textColor="@color/text_secondary"
-        android:textSize="16sp"
-        android:visibility="gone"
-        tools:visibility="visible"/>
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerView"
+    <!-- Content area fills remaining space -->
+    <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        app:layout_behavior="@string/appbar_scrolling_view_behavior"
-        android:padding="12dp"
-        android:clipToPadding="false"
-        tools:listitem="@layout/item_prescription"/>
+        android:layout_height="0dp"
+        android:layout_weight="1">
 
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/fabAdd"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="bottom|end"
-        android:layout_margin="20dp"
-        android:contentDescription="@string/add_prescription"
-        android:src="@android:drawable/ic_input_add"
-        app:backgroundTint="@color/colorPrimary"/>
+        <TextView
+            android:id="@+id/tvEmpty"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="@string/no_prescriptions_yet_ntap_to_add_one"
+            android:textAlignment="center"
+            android:textColor="@color/text_secondary"
+            android:textSize="16sp"
+            android:visibility="gone"
+            tools:visibility="visible"/>
 
-</androidx.coordinatorlayout.widget.CoordinatorLayout>
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="12dp"
+            android:clipToPadding="false"
+            tools:listitem="@layout/item_prescription"/>
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/fabAdd"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|end"
+            android:layout_margin="20dp"
+            android:contentDescription="@string/add_prescription"
+            android:src="@android:drawable/ic_input_add"
+            app:backgroundTint="@color/colorPrimary"/>
+
+    </FrameLayout>
+
+    <!-- Bottom Nav -->
+    <include
+        android:id="@+id/bottomNav"
+        layout="@layout/layout_bottom_nav"/>
+
+</LinearLayout>

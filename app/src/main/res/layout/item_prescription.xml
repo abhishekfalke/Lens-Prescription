@@ -5,7 +5,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginBottom="12dp"
+    android:layout_marginBottom="16dp"
+    android:layout_marginStart="3dp"
+    android:layout_marginEnd="3dp"
 
     app:cardCornerRadius="14dp"
     app:strokeWidth="1dp"
@@ -19,7 +21,7 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:orientation="vertical"
         android:padding="16dp">
 
@@ -27,9 +29,9 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
+            android:layout_marginBottom="10dp"
             android:gravity="center_vertical"
-            android:layout_marginBottom="10dp">
+            android:orientation="horizontal">
 
             <!-- Left -->
             <LinearLayout
@@ -42,18 +44,18 @@
                     android:id="@+id/tvPatientName"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:textColor="@color/text_dark"
                     android:textSize="16sp"
                     android:textStyle="bold"
-                    android:textColor="@color/text_dark"
-                    tools:text="Jane Doe"/>
+                    tools:text="Jane Doe" />
 
                 <TextView
                     android:id="@+id/tvDoctor"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textSize="12sp"
                     android:textColor="@color/text_dark"
-                    tools:text="Dr. Smith"/>
+                    android:textSize="12sp"
+                    tools:text="Dr. Smith" />
             </LinearLayout>
 
             <!-- Right -->
@@ -61,27 +63,27 @@
                 android:id="@+id/tvDate"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="12sp"
-                android:textColor="@color/text_dark"
                 android:layout_marginEnd="8dp"
-                tools:text="22 Mar 2026"/>
+                android:textColor="@color/text_dark"
+                android:textSize="12sp"
+                tools:text="22 Mar 2026" />
 
             <ImageButton
                 android:id="@+id/btnDelete"
                 android:layout_width="32dp"
                 android:layout_height="32dp"
-                android:src="@android:drawable/ic_menu_delete"
                 android:background="?attr/selectableItemBackgroundBorderless"
                 android:contentDescription="@string/delete"
-                app:tint="@color/error"/>
+                android:src="@android:drawable/ic_menu_delete"
+                app:tint="@color/error" />
         </LinearLayout>
 
         <!-- Divider -->
         <View
             android:layout_width="match_parent"
             android:layout_height="1dp"
-            android:background="@color/divider"
-            android:layout_marginBottom="10dp"/>
+            android:layout_marginBottom="10dp"
+            android:background="@color/divider" />
 
         <!-- Eye Data -->
         <LinearLayout
@@ -99,28 +101,28 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginBottom="4dp"
                     android:text="@string/od_right"
-                    android:textSize="11sp"
                     android:textColor="@color/colorPrimary"
-                    android:textStyle="bold"
-                    android:layout_marginBottom="4dp"/>
+                    android:textSize="11sp"
+                    android:textStyle="bold" />
 
                 <TextView
                     android:id="@+id/tvRightEye"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textSize="14sp"
                     android:fontFamily="monospace"
                     android:textColor="@color/text_dark"
-                    tools:text="-2.25 / -0.75 × 90°"/>
+                    android:textSize="14sp"
+                    tools:text="-2.25 / -0.75 × 90°" />
             </LinearLayout>
 
             <!-- Divider -->
             <View
                 android:layout_width="1dp"
                 android:layout_height="match_parent"
-                android:background="@color/divider"
-                android:layout_marginHorizontal="8dp"/>
+                android:layout_marginHorizontal="8dp"
+                android:background="@color/divider" />
 
             <!-- Left Eye -->
             <LinearLayout
@@ -132,20 +134,20 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginBottom="4dp"
                     android:text="@string/os_left"
-                    android:textSize="11sp"
                     android:textColor="@color/colorAccent"
-                    android:textStyle="bold"
-                    android:layout_marginBottom="4dp"/>
+                    android:textSize="11sp"
+                    android:textStyle="bold" />
 
                 <TextView
                     android:id="@+id/tvLeftEye"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textSize="14sp"
                     android:fontFamily="monospace"
                     android:textColor="@color/text_dark"
-                    tools:text="-1.75 / -0.50 × 85°"/>
+                    android:textSize="14sp"
+                    tools:text="-1.75 / -0.50 × 85°" />
             </LinearLayout>
 
         </LinearLayout>
